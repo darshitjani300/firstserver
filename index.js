@@ -1,7 +1,14 @@
 require("dotenv").config();
+
 const express = require("express");
 
 const app = express();
+
+const obj = {
+  name: "xyz",
+  email: "xyz@gmail.com",
+};
+
 console.log(process.env.PORT);
 
 app.get("/", (req, res) => {
@@ -21,6 +28,10 @@ app.get("/home/twitter", (req, res) => {
     </div>
     `
   );
+});
+
+app.get("/authentication", (req, res) => {
+  res.json(obj);
 });
 
 app.listen(process.env.PORT, () => {
